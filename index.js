@@ -1,41 +1,30 @@
-import bodyParser from "body-parser";
-import express from "express";
-import userRouter from "./routes/usersRoute.js";
-import mongoose from "mongoose";
-import galleryItemRouter from "./routes/galleryItemRoute.js";
-import jwt from "jsonwebtoken";
-const app = express();
+//Test the Connection with Htmal and js file
+console.log("Hello Kavindu Eranga");
 
-app.use(bodyParser.json());
+let x = 5;
+let y = 10;
 
-const connectionString =
-  "mongodb+srv://Tester:Eranga9648@clusterskyrer.8l4tp.mongodb.net/?retryWrites=true&w=majority&appName=ClusterSkyrer";
+let z;
+z = x + y;
 
-app.use((req, res, next) => {
-  const token = req.header("Autherization")?.replace("Bearer", "");
-  if (token != null) {
-    jwt.verify(token, "secret", (err, decoded) => {
-      if (decoded != null) {
-        req.user = decoded;
+//print the sum of two variables
+console.log("Sum of x and y is:" + z);
 
-        next();
-      }
-    });
-  }
-});
+//change the x and y values
+x = 10;
+y = 20;
+z = x + y;
+console.log("Sum of x and y is:" + z);
 
-mongoose
-  .connect(connectionString)
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch(() => {
-    console.log("Failed to connect to MongoDB");
-  });
+//not change x and y
+const p = 20;
 
-app.use("/api/users", userRouter);
-app.use("/api/gallery", galleryItemRouter);
+z = x + y + p;
+console.log("Sum of x and y is:" + z);
 
-app.listen(5000, (req, res) => {
-  console.log("Server is running on port 5000");
-});
+console.log(typeof x);
+
+//convert to not
+
+let combined = true;
+console.log(!combined);

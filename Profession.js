@@ -31,7 +31,9 @@ document.getElementById("div").onclick = function () {
   const num2 = parseFloat(document.getElementById("num2").value);
   if (num1 > num2) {
     const result = num1 / num2;
+    console.log(result);
   } else {
     const result = num2 / num1;
+    console.log(result);
   }
 };
